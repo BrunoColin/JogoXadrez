@@ -21,10 +21,15 @@ public class Peca {
 		
 		if(cor == 1){
 			dbg.setColor(Color.GREEN);
+			dbg.fillRect(x* 60 + 5, y * 60 + 10, 45, 30);
+			dbg.setColor(Color.black);
 		}
 		else{
 			dbg.setColor(Color.DARK_GRAY);
+			dbg.fillRect(x* 60 + 5, y * 60 + 10, 45, 30);
+			dbg.setColor(Color.WHITE);
 		}
+		
 		switch (tipo) {
 		case 1:	
 			dbg.drawString("Torre", x * 60 + 10, y * 60 + 30);
