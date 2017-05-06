@@ -9,7 +9,7 @@ public class Tabuleiro {
 	private Casa[][] casas;
 	
 	private Peca pecaAux;	
-	private BufferedImage pecasI = GamePanel.loadImage("chess_2.png");
+	//private BufferedImage pecasI = GamePanel.loadImage("chess_2.png");
 	
 	Casa reiBranco;
 	Casa reiPreto;
@@ -29,38 +29,56 @@ public class Tabuleiro {
 		setCasas();
 		
 		//set torres 
-		casas[0][0].setPeca(new Peca(1,2, pecasI.getSubimage(3*128, 2*128, 128, 128)));
-		casas[7][0].setPeca(new Peca(1,2,pecasI.getSubimage(3*128, 2*128, 128, 128)));
-		casas[0][7].setPeca(new Peca(1,1,pecasI.getSubimage(3*128, 128, 128, 128)));
-		casas[7][7].setPeca(new Peca(1,1,pecasI.getSubimage(3*128, 128, 128, 128)));
+//		casas[0][0].setPeca(new Peca(1,2, pecasI.getSubimage(3*128, 2*128, 128, 128)));
+//		casas[7][0].setPeca(new Peca(1,2,pecasI.getSubimage(3*128, 2*128, 128, 128)));
+//		casas[0][7].setPeca(new Peca(1,1,pecasI.getSubimage(3*128, 128, 128, 128)));
+//		casas[7][7].setPeca(new Peca(1,1,pecasI.getSubimage(3*128, 128, 128, 128)));
+		casas[0][0].setPeca(new Peca(1,2));
+		casas[7][0].setPeca(new Peca(1,2));
+		casas[0][7].setPeca(new Peca(1,1));
+		casas[7][7].setPeca(new Peca(1,1));
 		
 		//set cavalos
-		casas[1][0].setPeca(new Peca(2,2,pecasI.getSubimage(128, 2*128, 128, 128)));
-		casas[6][0].setPeca(new Peca(2,2,pecasI.getSubimage(128, 2*128, 128, 128)));
-		casas[1][7].setPeca(new Peca(2,1,pecasI.getSubimage(128, 128, 128, 128)));
-		casas[6][7].setPeca(new Peca(2,1,pecasI.getSubimage(128, 128, 128, 128)));
+//		casas[1][0].setPeca(new Peca(2,2,pecasI.getSubimage(128, 2*128, 128, 128)));
+//		casas[6][0].setPeca(new Peca(2,2,pecasI.getSubimage(128, 2*128, 128, 128)));
+//		casas[1][7].setPeca(new Peca(2,1,pecasI.getSubimage(128, 128, 128, 128)));
+//		casas[6][7].setPeca(new Peca(2,1,pecasI.getSubimage(128, 128, 128, 128)));
+		casas[1][0].setPeca(new Peca(2,2));
+		casas[6][0].setPeca(new Peca(2,2));
+		casas[1][7].setPeca(new Peca(2,1));
+		casas[6][7].setPeca(new Peca(2,1));
 		
 		//set bispos
-		casas[2][0].setPeca(new Peca(3,2,pecasI.getSubimage(2*128, 2*128, 128, 128)));
-		casas[5][0].setPeca(new Peca(3,2,pecasI.getSubimage(2*128, 2*128, 128, 128)));
-		casas[2][7].setPeca(new Peca(3,1,pecasI.getSubimage(2*128, 128, 128, 128)));
-		casas[5][7].setPeca(new Peca(3,1,pecasI.getSubimage(2*128, 128, 128, 128)));
+//		casas[2][0].setPeca(new Peca(3,2,pecasI.getSubimage(2*128, 2*128, 128, 128)));
+//		casas[5][0].setPeca(new Peca(3,2,pecasI.getSubimage(2*128, 2*128, 128, 128)));
+//		casas[2][7].setPeca(new Peca(3,1,pecasI.getSubimage(2*128, 128, 128, 128)));
+//		casas[5][7].setPeca(new Peca(3,1,pecasI.getSubimage(2*128, 128, 128, 128)));
+		casas[2][0].setPeca(new Peca(3,2));
+		casas[5][0].setPeca(new Peca(3,2));
+		casas[2][7].setPeca(new Peca(3,1));
+		casas[5][7].setPeca(new Peca(3,1));
 		
 		//set rainhas
-		casas[3][0].setPeca(new Peca(4,2,pecasI.getSubimage(4*128, 2*128, 128, 128)));
-		casas[3][7].setPeca(new Peca(4,1,pecasI.getSubimage(4*128, 128, 128, 128)));
+//		casas[3][0].setPeca(new Peca(4,2,pecasI.getSubimage(4*128, 2*128, 128, 128)));
+//		casas[3][7].setPeca(new Peca(4,1,pecasI.getSubimage(4*128, 128, 128, 128)));
+		casas[3][0].setPeca(new Peca(4,2));
+		casas[3][7].setPeca(new Peca(4,1));
 		
 		//set reis
-		casas[4][0].setPeca(new Peca(5,2,pecasI.getSubimage(5*128, 2*128, 128, 128)));
-		casas[4][7].setPeca(new Peca(5,1,pecasI.getSubimage(5*128, 128, 128, 128)));
+//		casas[4][0].setPeca(new Peca(5,2,pecasI.getSubimage(5*128, 2*128, 128, 128)));
+//		casas[4][7].setPeca(new Peca(5,1,pecasI.getSubimage(5*128, 128, 128, 128)));
+		casas[4][0].setPeca(new Peca(5,2));
+		casas[4][7].setPeca(new Peca(5,1));
 		reiBranco = casas[4][7];
 		reiPreto = casas[4][0];
 		
 		
 		for(int i = 0; i< 8; i++){
 			
-			casas[i][1].setPeca(new Peca(6,2,pecasI.getSubimage(0, 2*128, 128, 128)));
-			casas[i][6].setPeca(new Peca(6,1,pecasI.getSubimage(0, 128, 128, 128)));
+//			casas[i][1].setPeca(new Peca(6,2,pecasI.getSubimage(0, 2*128, 128, 128)));
+//			casas[i][6].setPeca(new Peca(6,1,pecasI.getSubimage(0, 128, 128, 128)));
+			casas[i][1].setPeca(new Peca(6,2));
+			casas[i][6].setPeca(new Peca(6,1));
 			
 		}
 	}

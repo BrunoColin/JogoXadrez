@@ -13,6 +13,10 @@ public class Jogador {
 		
 	}
 	
+	public String getNome(){
+		return this.nome;
+	}
+	
 	//public movimentaPeca ()
 	
 }

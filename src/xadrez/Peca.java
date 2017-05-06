@@ -1,5 +1,6 @@
 package xadrez;
 
+import java.awt.Color;
 import java.awt.Graphics2D;
 import java.awt.image.BufferedImage;
 
@@ -8,16 +9,42 @@ public class Peca {
 	int tipo;
 	int cor;
 	boolean seMoveu = false;
-	BufferedImage imagem;
+	//BufferedImage imagem;
 
-	public Peca(int tipo, int cor, BufferedImage imagem){
+	public Peca(int tipo, int cor){
 		this.tipo = tipo;
 		this.cor = cor;
-		this.imagem = imagem;
+		//this.imagem = imagem;
 	}
 	
 	public void DesenhaSe(Graphics2D dbg, int x, int y){
-		dbg.drawImage(imagem, x*60 +10, y*60 + 10, 40, 40, null);		
+		
+		dbg.setColor(Color.DARK_GRAY);
+		
+		switch (tipo) {
+		case 1:	
+			dbg.drawString("Torre", x * 60 + 10, y * 60 + 30);
+			break;
+		case 2:	
+			dbg.drawString("Cavalo", x * 60 + 10, y * 60 + 30);
+			break;
+		case 3:	
+			dbg.drawString("Bispo", x * 60 + 10, y * 60 + 30);
+			break;
+		case 4:	
+			dbg.drawString("Rainha", x * 60 + 10, y * 60 + 30);
+			break;
+		case 5:	
+			dbg.drawString("Rei", x * 60 + 10, y * 60 + 30);
+			break;
+		case 6:	
+			dbg.drawString("Peão", x * 60 + 10, y * 60 + 30);
+			break;
+
+		default:
+			break;
+		}
+		//dbg.drawImage(imagem, x*60 +10, y*60 + 10, 40, 40, null);		
 	}
 	
 	public int getCor(){

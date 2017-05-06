@@ -5,10 +5,16 @@ public class Turno {
 	
 	Jogador jogador;
 	Jogadas jogada;
-	int turno = 0;
+	int turno;
 	boolean selecionada = false;
 	int xSel, ySel, xMove, yMove;
 	Tabuleiro tabuleiro;
+	
+	public Turno(Jogador jogador, Tabuleiro tabuleiro){
+		this.jogador = jogador;
+		this.turno = 1;
+		this.tabuleiro = tabuleiro;
+	}
 	
 	public void setJogadorTurno(Tabuleiro tabuleiro,Jogador jogador){
 		
@@ -36,21 +42,24 @@ public class Turno {
 	public boolean getSelecionada(){
 		return this.selecionada;
 	}
-	public void selecionaPeca(int x, int y){
+	public Peca selecionaPeca(int x, int y){
 		
 		if(verificaCasa(x, y)){
-			if(verificaPeca(tabuleiro.getCasas(x, y).getPeca().getCor())){
+			if(verificaPeca(x,y)){
 				xSel = x;
 				ySel = y;
 				selecionada = true;
 				System.out.println("peca " + tabuleiro.getCasas(x, y).getPeca().getTipo() + " selecionada");
+				return tabuleiro.getCasas(x, y).getPeca();
 			}
 			else{
 				System.out.println("O jogador não pode selecionar a peça do adversário");
+				return null;
 			}
 		}
 		else{
 			System.out.println("Posição invalida");
+			return null;
 		}
 		
 	}
@@ -77,13 +86,20 @@ public class Turno {
 	}
 
 	
-	public boolean verificaPeca(int corPeca){
-				
-		if(corPeca%2 == turno%2){
-			return true;
+	public boolean verificaPeca(int x, int y){
+			
+		if(tabuleiro.getCasas(x, y).vazio){
+			return false;
 		}
 		else{
-			return false;
+			int corPeca = tabuleiro.getCasas(x, y).getPeca().getCor(); 
+
+			if(corPeca%2 == turno%2){
+				return true;
+			}
+			else{
+				return false;
+			}
 		}
 	}
 	
@@ -93,7 +109,12 @@ public class Turno {
 			return false;
 		}
 		else{
+			if(tabuleiro.getCasas(x, y).vazio){
+				return false;
+			}
+			else{
 			return true;
+			}
 		}
 	}
 	

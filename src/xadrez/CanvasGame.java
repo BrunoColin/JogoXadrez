@@ -36,8 +36,8 @@ public class CanvasGame extends myCanvas {
 		jog2 = new Jogador("Xamps");
 		
 		tabuleiro  = new Tabuleiro();
-		turno = new Turno();
-		turno.setJogadorTurno(tabuleiro,jog1);
+		turno = new Turno(jog1, tabuleiro);
+		//turno.setJogadorTurno(tabuleiro,jog1);
 	}
 	
 	@Override
@@ -181,6 +181,9 @@ public class CanvasGame extends myCanvas {
 		FIRE = true;
 		if(e.getButton() == 1){
 		
+//			if(!turno.getSelecionada()){
+//				turno.selecionaPeca(MouseX/60, MouseY/60);
+//			}
 			if(!turno.getSelecionada()){
 				turno.selecionaPeca(MouseX/60, MouseY/60);
 			}
