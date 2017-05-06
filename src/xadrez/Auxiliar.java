@@ -2,9 +2,9 @@ package xadrez;
 
 public class Auxiliar {
 
-	public static Tabuleiro criaTabuleiro(){
+	public static Tabuleiro criaTabuleiro(int padrao){
 	
-		Tabuleiro tabuleiro = new Tabuleiro();
+		Tabuleiro tabuleiro = new Tabuleiro(padrao);
 		
 		return tabuleiro;
 		
@@ -51,4 +51,57 @@ public class Auxiliar {
 		
 		turno.movePecaSelecionada(2, 7);
 	}
+	
+	public static boolean moveHorizontal(Turno turno){
+		
+		Jogadas jogadas= new Jogadas(0, 7, 1, 7, turno.tabuleiro);
+		return jogadas.jogada();
+		
+	}
+	
+	public static boolean moveL(Turno turno){
+		Jogadas jogadas= new Jogadas(1, 0, 2, 2, turno.tabuleiro);
+		return jogadas.jogada();
+	}
+	
+	public static boolean moveVertical(Turno turno){
+		
+		Jogadas jogadas= new Jogadas(0, 5, 0, 3, turno.tabuleiro);
+		return jogadas.jogada();
+		
+	}
+	
+	public static boolean moveDiagonal(Turno turno){
+		
+		Jogadas jogadas= new Jogadas(5, 0, 0, 5, turno.tabuleiro);
+		return jogadas.jogada();
+		
+	}
+	
+	public static boolean moveDiagonalInvalida(Turno turno){
+		
+		Jogadas jogadas= new Jogadas(5, 0, 1, 5, turno.tabuleiro);
+		return jogadas.jogada();
+		
+	}
+	
+	public static boolean movimentoBloqueado(Turno turno){
+		
+		Jogadas jogadas= new Jogadas(3, 0, 3, 7, turno.tabuleiro);
+		return jogadas.jogada();
+		
+	}	
+	
+	public static boolean verificaXeque(Turno turno){
+		
+		//Casa rei = turno.tabuleiro.reiBranco;
+		return turno.validaXeque(turno.tabuleiro.reiBranco);
+		
+	}	
+	
+	public static int verificaXequeMate(Turno turno){
+		
+		turno.tabuleiro.come(1, 4, 4, 7);
+		return turno.tabuleiro.getXequeMate();
+	}	
 }

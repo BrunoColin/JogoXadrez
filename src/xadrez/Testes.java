@@ -11,7 +11,7 @@ public class Testes {
 	@Test
 	public void verificaPosicaoReiPreto() throws Exception{
 		
-		Tabuleiro tabuleiro = Auxiliar.criaTabuleiro();
+		Tabuleiro tabuleiro = Auxiliar.criaTabuleiro(1);
 		assertEquals(4, tabuleiro.getReiPreto().getPosX());
 		assertEquals(0, tabuleiro.getReiPreto().getPosY());
 		
@@ -20,7 +20,7 @@ public class Testes {
 	@Test
 	public void verificaPosicaoReiBranco() throws Exception{
 		
-		Tabuleiro tabuleiro = Auxiliar.criaTabuleiro();
+		Tabuleiro tabuleiro = Auxiliar.criaTabuleiro(1);
 		assertEquals(4, tabuleiro.getReiBranco().getPosX());
 		assertEquals(7, tabuleiro.getReiBranco().getPosY());
 		
@@ -36,7 +36,7 @@ public class Testes {
 	@Test 
 	public void verificaTurnoInicial() throws Exception{
 		
-		Tabuleiro tabuleiro = Auxiliar.criaTabuleiro();
+		Tabuleiro tabuleiro = Auxiliar.criaTabuleiro(1);
 		Jogador jogador = Auxiliar.criaJogador();
 		Turno turno = Auxiliar.criaTurno(jogador, tabuleiro);
 		assertEquals("Bruno", turno.jogador.getNome());
@@ -46,7 +46,7 @@ public class Testes {
 	@Test
 	public void verificaCliqueForaDoTabuleiro() throws Exception{
 		
-		Tabuleiro tabuleiro = Auxiliar.criaTabuleiro();
+		Tabuleiro tabuleiro = Auxiliar.criaTabuleiro(1);
 		Jogador jogador = Auxiliar.criaJogador();
 		Turno turno = Auxiliar.criaTurno(jogador, tabuleiro);
 		boolean resultadoClique = Auxiliar.verificaCliqueForaDoTabuleiro(turno);
@@ -55,7 +55,7 @@ public class Testes {
 	
 	@Test
 	public void verificaCliqueDentroDoTabuleiro() throws Exception{
-		Tabuleiro tabuleiro = Auxiliar.criaTabuleiro();
+		Tabuleiro tabuleiro = Auxiliar.criaTabuleiro(1);
 		Jogador jogador = Auxiliar.criaJogador();
 		Turno turno = Auxiliar.criaTurno(jogador, tabuleiro);
 		boolean resultadoClique = Auxiliar.verificaCliqueDentroDoTabuleiro(turno);
@@ -65,7 +65,7 @@ public class Testes {
 	@Test
 	public void verificaCorDaPeca() throws Exception{
 		
-		Tabuleiro tabuleiro = Auxiliar.criaTabuleiro();
+		Tabuleiro tabuleiro = Auxiliar.criaTabuleiro(1);
 		Jogador jogador = Auxiliar.criaJogador();
 		Turno turno = Auxiliar.criaTurno(jogador, tabuleiro);
 		boolean resultadoVerificacaoCorPeca = Auxiliar.verificaCorDaPeca(turno);
@@ -75,7 +75,7 @@ public class Testes {
 	@Test
 	public void verificaPecaSelecionada() throws Exception{
 		
-		Tabuleiro tabuleiro = Auxiliar.criaTabuleiro();
+		Tabuleiro tabuleiro = Auxiliar.criaTabuleiro(1);
 		Jogador jogador = Auxiliar.criaJogador();
 		Turno turno = Auxiliar.criaTurno(jogador, tabuleiro);
 		Peca peca = Auxiliar.verificaSelecaoPeca(turno);
@@ -84,14 +84,79 @@ public class Testes {
 	}
 	
 	@Test
-	public void movePecaSelecionada() throws Exception{
+	public void verificaMovimentoHorizontal() throws Exception{
 		
-		Tabuleiro tabuleiro = Auxiliar.criaTabuleiro();
+		Tabuleiro tabuleiro = Auxiliar.criaTabuleiro(1);
 		Jogador jogador = Auxiliar.criaJogador();
 		Turno turno = Auxiliar.criaTurno(jogador, tabuleiro);
-		Peca peca = Auxiliar.verificaSelecaoPeca(turno);
-		Auxiliar.movePecaSelecionada(turno);
-		//assertEquals(2, peca.);
+		boolean resultado = Auxiliar.moveHorizontal(turno);
+		assertEquals(true, resultado);
 		
 	}
+	
+	@Test
+	public void verificaMovimentoL() throws Exception{
+		
+		Tabuleiro tabuleiro = Auxiliar.criaTabuleiro(1);
+		Jogador jogador = Auxiliar.criaJogador();
+		Turno turno = Auxiliar.criaTurno(jogador, tabuleiro);
+		boolean resultado = Auxiliar.moveL(turno);
+		assertEquals(true, resultado);
+		
+	}
+	
+	@Test
+	public void verificaMovimentoVertical() throws Exception{
+		
+		Tabuleiro tabuleiro = Auxiliar.criaTabuleiro(2);
+		Jogador jogador = Auxiliar.criaJogador();
+		Turno turno = Auxiliar.criaTurno(jogador, tabuleiro);
+		boolean resultado = Auxiliar.moveVertical(turno);
+		assertEquals(true, resultado);
+		
+	}
+	
+	@Test
+	public void verficaDiagonal() throws Exception{
+		
+		Tabuleiro tabuleiro = Auxiliar.criaTabuleiro(2);
+		Jogador jogador = Auxiliar.criaJogador();
+		Turno turno = Auxiliar.criaTurno(jogador, tabuleiro);
+		boolean resultado = Auxiliar.moveDiagonal(turno);
+		assertEquals(true, resultado);
+	}
+	
+	@Test
+	public void verficaDiagonalInvalida() throws Exception{
+		
+		Tabuleiro tabuleiro = Auxiliar.criaTabuleiro(2);
+		Jogador jogador = Auxiliar.criaJogador();
+		Turno turno = Auxiliar.criaTurno(jogador, tabuleiro);
+		boolean resultado = Auxiliar.moveDiagonalInvalida(turno);
+		assertEquals(false, resultado);
+	}
+	
+	@Test
+	public void movimentoBloqueado() throws Exception{
+		
+		Tabuleiro tabuleiro = Auxiliar.criaTabuleiro(2);
+		Jogador jogador = Auxiliar.criaJogador();
+		Turno turno = Auxiliar.criaTurno(jogador, tabuleiro);
+		boolean resultado = Auxiliar.movimentoBloqueado(turno);
+		assertEquals(false, resultado);
+		
+	}
+	
+	@Test
+	public void verificaXeque() throws Exception{
+		
+		Tabuleiro tabuleiro = Auxiliar.criaTabuleiro(3);
+		Jogador jogador = Auxiliar.criaJogador();
+		Turno turno = Auxiliar.criaTurno(jogador, tabuleiro);
+		int resultado = Auxiliar.verificaXequeMate(turno);
+		assertEquals(1, resultado);
+		
+	}
+	
+	
 }

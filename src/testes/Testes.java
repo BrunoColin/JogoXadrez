@@ -9,12 +9,12 @@ import xadrez.Tabuleiro;
 
 public class Testes {
 
-	@Test
-	public void verificaPosicaoReiPreto() throws Exception{
-		
-		Tabuleiro tabuleiro = Auxiliar.criaTabuleiro();
-		assertEquals(4, tabuleiro.getReiPreto().getPosX());
-		
-	}
+//	@Test
+//	public void verificaPosicaoReiPreto() throws Exception{
+//		
+//		Tabuleiro tabuleiro = Auxiliar.criaTabuleiro();
+//		assertEquals(4, tabuleiro.getReiPreto().getPosX());
+//		
+//	}
 	
 }

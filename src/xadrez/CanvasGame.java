@@ -35,7 +35,7 @@ public class CanvasGame extends myCanvas {
 		jog1 = new Jogador("Bruno");
 		jog2 = new Jogador("Xamps");
 		
-		tabuleiro  = new Tabuleiro();
+		tabuleiro  = new Tabuleiro(1);
 		turno = new Turno(jog1, tabuleiro);
 		//turno.setJogadorTurno(tabuleiro,jog1);
 	}
@@ -54,30 +54,46 @@ public class CanvasGame extends myCanvas {
 		
 		if(tabuleiro.xequeMate == 0){
 		dbg.setColor(Color.red);
-		dbg.drawString(jog1.nome, 600, 20);
-		dbg.drawString(jog2.nome, 600, 120);
+		
+		dbg.drawString("Jogador Verde", 600, 20);
+		dbg.drawString(jog1.nome, 600, 40);
+		dbg.drawString("Jogador Preto", 600, 110);
+		dbg.drawString(jog2.nome, 600, 130);
 		
 		dbg.setColor(Color.blue);
-		dbg.drawString(turno.jogador.nome, 600, 320);
+		
+		if(turno.turno %2 == 1){
+			dbg.drawString("Sua vez", 550, 20);
+		}
+		else{			
+			dbg.drawString("Sua vez", 550, 110);
+		}
+		
 		
 		if(xeque){
-			dbg.drawString(turno.jogador.nome + " está em xeque", 500, 420);
+			dbg.drawString(turno.jogador.nome + " está em xeque", 550, 420);
 		}
 		else{
-			dbg.drawString(turno.jogador.nome + " não está em xeque", 500, 420);
+			dbg.drawString(turno.jogador.nome + " não está em xeque", 550, 420);
+		}
+		
+		for(int i = 0; i < 8; i++){
+			
+			dbg.drawString(""+i, 510, i*60 + 30);
+			dbg.drawString(""+i, i*60 + 30, 500);
 		}
 		
 		tabuleiro.DesenhaSe(dbg);
 		}
 		else if(tabuleiro.xequeMate == 1){
 			dbg.setColor(Color.blue);
-			dbg.drawString("Xeque mate!", 300, 220);
-			dbg.drawString("O jogador " + jog2.nome + " venceu", 300, 240);
+			dbg.drawString("Xeque mate!", 350, 220);
+			dbg.drawString("O jogador " + jog2.nome + " venceu", 350, 240);
 		}
 		else{
 			dbg.setColor(Color.blue);
-			dbg.drawString("Xeque mate!", 300, 220);
-			dbg.drawString("O jogador " + jog1.nome + " venceu", 300, 240);
+			dbg.drawString("Xeque mate!", 350, 220);
+			dbg.drawString("O jogador " + jog1.nome + " venceu", 350, 240);
 		}
 	}
 	

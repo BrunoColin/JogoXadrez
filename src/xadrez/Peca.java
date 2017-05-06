@@ -19,8 +19,12 @@ public class Peca {
 	
 	public void DesenhaSe(Graphics2D dbg, int x, int y){
 		
-		dbg.setColor(Color.DARK_GRAY);
-		
+		if(cor == 1){
+			dbg.setColor(Color.GREEN);
+		}
+		else{
+			dbg.setColor(Color.DARK_GRAY);
+		}
 		switch (tipo) {
 		case 1:	
 			dbg.drawString("Torre", x * 60 + 10, y * 60 + 30);

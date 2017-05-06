@@ -15,8 +15,8 @@ import javax.imageio.ImageIO;
 
 public class GamePanel extends JPanel implements Runnable
 {
-public static final int PWIDTH = 640;
-public static final int PHEIGHT = 480;
+public static final int PWIDTH = 700;
+public static final int PHEIGHT = 520;
 
 public static GamePanel instance;
 
