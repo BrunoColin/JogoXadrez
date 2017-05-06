@@ -35,7 +35,7 @@ public class CanvasGame extends myCanvas {
 		jog1 = new Jogador("Bruno");
 		jog2 = new Jogador("Xamps");
 		
-		tabuleiro  = new Tabuleiro(1);
+		tabuleiro  = new Tabuleiro(3);
 		turno = new Turno(jog1, tabuleiro);
 		//turno.setJogadorTurno(tabuleiro,jog1);
 	}

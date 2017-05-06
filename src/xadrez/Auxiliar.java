@@ -64,6 +64,11 @@ public class Auxiliar {
 		return jogadas.jogada();
 	}
 	
+	public static boolean validaRoque(Turno turno){
+		Jogadas jogadas= new Jogadas(7, 7, 4, 7, turno.tabuleiro);
+		return jogadas.jogada();
+	}
+	
 	public static boolean moveVertical(Turno turno){
 		
 		Jogadas jogadas= new Jogadas(0, 5, 0, 3, turno.tabuleiro);

@@ -252,7 +252,6 @@ public class Tabuleiro {
 			casas[7][5].setPeca(new Peca(3,2));
 			casas[1][4].setPeca(new Peca(3,2));
 			casas[2][7].setPeca(new Peca(3,1));
-			casas[5][7].setPeca(new Peca(3,1));
 			
 			//set rainhas
 			casas[3][0].setPeca(new Peca(4,2));

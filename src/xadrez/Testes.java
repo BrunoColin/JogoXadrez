@@ -158,5 +158,26 @@ public class Testes {
 		
 	}
 	
+	@Test
+	public void roqueInvalido() throws Exception{
+		
+		Tabuleiro tabuleiro = Auxiliar.criaTabuleiro(1);
+		Jogador jogador = Auxiliar.criaJogador();
+		Turno turno = Auxiliar.criaTurno(jogador, tabuleiro);
+		boolean resultado = Auxiliar.validaRoque(turno);
+		assertEquals(false, resultado);
+		
+	}
+	
+	@Test
+	public void roqueValido() throws Exception{
+		
+		Tabuleiro tabuleiro = Auxiliar.criaTabuleiro(3);
+		Jogador jogador = Auxiliar.criaJogador();
+		Turno turno = Auxiliar.criaTurno(jogador, tabuleiro);
+		boolean resultado = Auxiliar.validaRoque(turno);
+		assertEquals(true, resultado);
+		
+	}
 	
 }
