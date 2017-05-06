@@ -99,7 +99,6 @@ public class Auxiliar {
 	
 	public static boolean verificaXeque(Turno turno){
 		
-		//Casa rei = turno.tabuleiro.reiBranco;
 		return turno.validaXeque(turno.tabuleiro.reiBranco);
 		
 	}	

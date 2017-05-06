@@ -153,6 +153,17 @@ public class Testes {
 		Tabuleiro tabuleiro = Auxiliar.criaTabuleiro(3);
 		Jogador jogador = Auxiliar.criaJogador();
 		Turno turno = Auxiliar.criaTurno(jogador, tabuleiro);
+		boolean resultado = Auxiliar.verificaXeque(turno);
+		assertEquals(true, resultado);
+		
+	}
+	
+	@Test
+	public void verificaXequeMate() throws Exception{
+		
+		Tabuleiro tabuleiro = Auxiliar.criaTabuleiro(3);
+		Jogador jogador = Auxiliar.criaJogador();
+		Turno turno = Auxiliar.criaTurno(jogador, tabuleiro);
 		int resultado = Auxiliar.verificaXequeMate(turno);
 		assertEquals(1, resultado);
 		
